@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interests</title>
+    <style>
+        body {
+            background: url("./SignUp.png");
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            width: 32%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fcb9ff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Any Other Interests?</h1>
+        <form id="yesNoForm">
+            <label for="question1">How are you with Biology?</label>
+            <select id="question1" name="question1">
+                <option value="1">Suits me well</option>
+                <option value="0">Not my cup of tea</option>
+            </select>
+            <br><br><br>
+
+            <label for="question2">Are you a Sportsperson?</label>
+            <select id="question2" name="question2">
+                <option value="1">YESS I AM !!</option>
+                <option value="0">No, not really</option>
+            </select>
+            <br><br><br>
+
+            <button type="button" id="submitBtn">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Handle form submission
+        document.getElementById("submitBtn").addEventListener("click", function() {
+            // Get user responses
+            const question1 = document.getElementById("question1").value;
+            const question2 = document.getElementById("question2").value;
+        
+
+            // Store responses in localStorage
+            localStorage.setItem("question1", question1);
+            localStorage.setItem("question2", question2);
+            
+
+            // Redirect to the next page
+            window.location.href = "./FinalPage.html";
+        });
+    </script>
+</body>
+</html>

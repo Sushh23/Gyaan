@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Final Quiz Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .result-container {
+            background-color: #f8f8f8;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        p.total-result {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Final Quiz Results</h1>
+
+    <div class="result-container">
+        <!-- Display correct answers for each section -->
+        <h2>Section A Results</h2>
+        <p>Your score in Section A: <span id="resultA">0</span></p>
+
+        <h2>Section B Results</h2>
+        <p>Your score in Section B: <span id="resultB">0</span></p>
+
+        <h2>Section C Results</h2>
+        <p>Your score in Section C: <span id="resultC">0</span></p>
+
+        <h2>Section D Results</h2>
+        <p>Your score in Section D: <span id="resultD">0</span></p>
+
+        <h2>Section E Results</h2>
+        <p>Your score in Section E: <span id="resultE">0</span></p>
+
+        <h2>Section F Results</h2>
+        <p>Your score in Section F: <span id="resultF">0</span></p>
+
+        <h2>Section G Results</h2>
+        <p>Your score in Section G: <span id="resultG">0</span></p>
+
+        <!-- Display total correct answers -->
+        <p class="total-result">Total Correct Answers: <span id="totalResult">0</span> out of 70</p>
+    </div>
+
+    <button onclick="returnToStart()">Recommendation</button>
+
+    <script>
+        // JavaScript code for FinalPage.html
+        const totalResultElement = document.getElementById("totalResult");
+        const resultA = parseInt(localStorage.getItem("correctAnswersA")) || 0;
+        const resultB = parseInt(localStorage.getItem("correctAnswersB")) || 0;
+        const resultC = parseInt(localStorage.getItem("correctAnswersC")) || 0;
+        const resultD = parseInt(localStorage.getItem("correctAnswersD")) || 0;
+        const resultE = parseInt(localStorage.getItem("correctAnswersE")) || 0;
+        const resultF = parseInt(localStorage.getItem("correctAnswersF")) || 0;
+        const resultG = parseInt(localStorage.getItem("correctAnswersG")) || 0;
+
+        const totalCorrect = resultA + resultB + resultC + resultD + resultE + resultF + resultG;
+
+        // Display correct answers for each section
+        document.getElementById("resultA").textContent = resultA;
+        document.getElementById("resultB").textContent = resultB;
+        document.getElementById("resultC").textContent = resultC;
+        document.getElementById("resultD").textContent = resultD;
+        document.getElementById("resultE").textContent = resultE;
+        document.getElementById("resultF").textContent = resultF;
+        document.getElementById("resultG").textContent = resultG;
+
+        totalResultElement.textContent = totalCorrect;
+
+        function returnToStart() {
+            window.location.href = "./Recommendation.html"; // Redirect to the start page (A.html)
+        }
+    </script>
+</body>
+</html>

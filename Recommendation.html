@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommendation</title>
+    <style>
+        body {
+            background: url('./SignUp.png');
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #FFFFFF;
+        }
+
+        .box {
+            width: 300px;
+            background-color: #dabcf3;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 20px;
+            color: #000000;
+            font-size: 19px;
+        }
+
+        .box:hover {
+            background-color: #b981d2;
+        }
+
+        .line {
+            margin: 10px 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>These are our recommendations! Do check it out!</h1>
+    <div class="box" id="box">
+        <!-- Lines from all sections will be dynamically added here -->
+    </div>
+
+    <script>
+        function addLine(text, link) {
+            const line = document.createElement("div");
+            line.textContent = text;
+            line.classList.add("line");
+            line.onclick = function() {
+                window.location.href = link;
+            };
+            return line;
+        }
+
+        // Accumulate lines from different sections
+        const lines = [];
+
+        // Check correct answers for section A
+        const correctAnswersA = parseInt(localStorage.getItem("correctAnswersA")) || 0;
+        if (correctAnswersA < 5) {
+            lines.push(addLine("Sommelier", "./sommelier.html"));
+            lines.push(addLine("Sales Manager", "./SalesManager.html"));
+        } else {
+            lines.push(addLine("Indian Administrative Services", "./IAS.html"));
+            lines.push(addLine("Indian Foreign Services", "./ifs.html"));
+        }
+
+        // Check correct answers for section B
+        const correctAnswersB = parseInt(localStorage.getItem("correctAnswersB")) || 0;
+        if (correctAnswersB < 5) {
+            lines.push(addLine("Police Officer", "./Police.html"));
+            lines.push(addLine("Indian Foreign Services", "./ifs.html"));
+        } else {
+            lines.push(addLine("Teacher", "./Teacher.html"));
+            lines.push(addLine("Physicist", "./physicists.html"));
+        }
+
+        // Check correct answers for section C
+        const correctAnswersC = parseInt(localStorage.getItem("correctAnswersC")) || 0;
+        if (correctAnswersC < 5) {
+            lines.push(addLine("General Admistrator", "./General_administration.html"));
+            lines.push(addLine("Physicist", "./physicists.html"));
+        } else {
+            lines.push(addLine("Fire Fighter", "./Firefighter.html"));
+            lines.push(addLine("Police", "./Police.html"));
+        }
+
+        // Check correct answers for section D
+        const correctAnswersD = parseInt(localStorage.getItem("correctAnswersD")) || 0;
+        if (correctAnswersD < 5) {
+            lines.push(addLine("Chemist", "./chemists.html"));
+            lines.push(addLine("Physicist", "./physicists.html"));
+        } else {
+            lines.push(addLine("Fire Fighter", "./Firefighter.html"));
+            lines.push(addLine("Police", "./Police.html"));
+        }
+
+        // Check correct answers for section E
+        const correctAnswersE = parseInt(localStorage.getItem("correctAnswersE")) || 0;
+        if (correctAnswersE < 5) {
+            lines.push(addLine("Education Admistrator", "./Education_Admistrator.html"));
+            lines.push(addLine("General Admistrator", "./General_Admistrator.html"));
+        } else {
+            lines.push(addLine("Chemist", "./chemists.html"));
+            lines.push(addLine("College Professor", "./College_proff.html"));
+        }
+
+        // Check correct answers for section F
+        const correctAnswersF = parseInt(localStorage.getItem("correctAnswersF")) || 0;
+        if (correctAnswersF < 5) {
+            lines.push(addLine("Sales Manager", "./SalesManager.html"));
+            lines.push(addLine("Teacher", "./Teacher.html"));
+        } else {
+            lines.push(addLine("Pilot", "./pilot.html"));
+            lines.push(addLine("College Professor", "./College_proff.html"));
+        }
+
+        // Check correct answers for section G
+        const correctAnswersG = parseInt(localStorage.getItem("correctAnswersG")) || 0;
+        if (correctAnswersG < 5) {
+            lines.push(addLine("Pilot", "./pilot.html"));
+            lines.push(addLine("College Professor", "./College_proff.html"));
+        } else {
+            lines.push(addLine("Teacher", "./Teacher.html"));
+            lines.push(addLine("Physicist", "./phycisists.html"));
+        }        
+
+        lines.push(addLine("Biologist", "./Biologist.html"));
+        lines.push(addLine("Cricketer", "./Cricketer2.html"));
+
+        // Display all accumulated lines
+        const box = document.getElementById("box");
+        box.innerHTML = ""; // Clear any existing lines
+        lines.forEach(function(line) {
+            box.appendChild(line);
+        });
+    </script>
+</body>
+</html>
